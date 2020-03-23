@@ -1,15 +1,28 @@
 import React, { useState } from 'react'
 import { View, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { tabWidth, Scaler } from '../utils'
+import { Scaler, windowWidth } from '../utils'
 import styles from '../styling'
 
 const ColorFillNavigationTab = props => {
-  const { navigation, renderIcon, onTabPress, onTabLongPress, style, activeTintColor, inactiveTintColor, tabType, tabBarHeight } = props
+  const { navigation, 
+    renderIcon, 
+    onTabPress, 
+    onTabLongPress, 
+    style, 
+    activeTintColor, 
+    inactiveTintColor, 
+    tabType, 
+    tabBarHeight 
+  } = props
+
   const { backgroundColor } = style
   const [containerColor, setContainerColor] = useState(backgroundColor.home)
 
   const { routes, index: activeRouteIndex } = navigation.state
+
+  let numOfTabs = routes.length;
+  let tabWidth = windowWidth / numOfTabs
 
 	return (
     <View style = {[styles.container, { backgroundColor: containerColor, height: tabBarHeight || 70 }]}>

@@ -7,7 +7,7 @@ import {
 } from "react-native";
 
 import SpotLightViewContainer from './SpotLightViewContainer'
-import { SpotLight, Scaler } from '../utils'
+import { Scaler } from '../utils'
 import styles from '../styling'
 
 const LightDarkTab = props => {
@@ -35,6 +35,7 @@ const LightDarkTab = props => {
         activeRouteIndex = { activeRouteIndex } 
         darkBuldgeColor = { backgroundColor } 
         tabBarHeight = { tabBarHeight }
+        routes = { routes }
       />
 
       {routes.map((route, routeIndex) => {

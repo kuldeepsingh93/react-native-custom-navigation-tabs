@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native'
 
-import { tabWidth } from '../utils'
-
 const styles = StyleSheet.create({
 	container: {
     flexDirection: "row",
@@ -10,26 +8,19 @@ const styles = StyleSheet.create({
   },
   tabButton: { flex: 1 },
   spotLight: {
-    width: tabWidth,
     height: "100%",
     justifyContent: "center",
     alignItems: "center"
   },
   spotLightInner: {
-    width: tabWidth * 0.63,
-    height: tabWidth * 0.63,
     backgroundColor: "#ffffff",
     borderRadius: 50
   },
   lightModeSpotLightInner: {
-    width: tabWidth * 0.57,
-    height: tabWidth * 0.57,
     backgroundColor: "#ffffff",
     borderRadius: 50
   },
   dark_bulge_container: { 
-    height: tabWidth, 
-    width: tabWidth * 0.85, 
     backgroundColor: '#000000',
     position: 'absolute',
     bottom: 10,
@@ -37,8 +28,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 50
   },
   light_bulge_container: {
-    height: tabWidth, 
-    width: tabWidth * 0.68, 
     backgroundColor: '#bbbbbb',
     position: 'absolute',
     top: 0,

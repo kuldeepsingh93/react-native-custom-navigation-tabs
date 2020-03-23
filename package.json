@@ -1,6 +1,6 @@
 {
   "name": "react-native-custom-navigation-tabs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Custom bottom navigation tabs for react native",
   "main": "index.js",
   "scripts": {
