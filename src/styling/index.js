@@ -5,7 +5,6 @@ import { tabWidth } from '../utils'
 const styles = StyleSheet.create({
 	container: {
     flexDirection: "row",
-    height: 70,
     elevation: 2,
     alignItems: "center",
   },
@@ -17,20 +16,20 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   spotLightInner: {
-    width: tabWidth * 0.65,
-    height: tabWidth * 0.65,
+    width: tabWidth * 0.63,
+    height: tabWidth * 0.63,
     backgroundColor: "#ffffff",
     borderRadius: 50
   },
   lightModeSpotLightInner: {
-    width: tabWidth * 0.55,
-    height: tabWidth * 0.55,
+    width: tabWidth * 0.57,
+    height: tabWidth * 0.57,
     backgroundColor: "#ffffff",
     borderRadius: 50
   },
   dark_bulge_container: { 
-    height: tabWidth * 0.58, 
-    width: tabWidth * 0.89, 
+    height: tabWidth, 
+    width: tabWidth * 0.85, 
     backgroundColor: '#000000',
     position: 'absolute',
     bottom: 10,
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 50
   },
   light_bulge_container: {
-    height: tabWidth * 0.39, 
+    height: tabWidth, 
     width: tabWidth * 0.68, 
     backgroundColor: '#bbbbbb',
     position: 'absolute',

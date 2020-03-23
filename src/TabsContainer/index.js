@@ -14,12 +14,12 @@ const TabsContainer = props => {
   const { tabType } = props;
   return (
     <View>
-        { (tabType === 'colorFillTab') 
-          && 
-          <ColorFillNavigationTab { ...props } /> 
-          ||
-          <LightDarkTab { ...props } />
-        }         
+      { (tabType === 'colorFillTab') 
+        && 
+        <ColorFillNavigationTab { ...props } /> 
+        ||
+        <LightDarkTab { ...props } />
+      }         
     </View>
   )
 }

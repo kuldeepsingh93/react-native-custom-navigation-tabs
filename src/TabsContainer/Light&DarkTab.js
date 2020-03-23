@@ -20,23 +20,29 @@ const LightDarkTab = props => {
     getAccessibilityLabel,
     navigation,
     tabType,
-    tabBarBackgroundColor
+    tabBarBackgroundColor,
+    tabBarHeight
   } = props;
 
   const { routes, index: activeRouteIndex } = navigation.state;
 
+  const backgroundColor = tabBarBackgroundColor || ((tabType === 'dark') && 'black') || 'white'
+
   return (
-    <View style={[styles.container, { backgroundColor: tabBarBackgroundColor }]}>
-      <SpotLightViewContainer styles = { styles } tabType = { tabType } SpotLight = { SpotLight } activeRouteIndex = { activeRouteIndex } />
+    <View style={[styles.container, { backgroundColor: backgroundColor, height: tabBarHeight || 70 }]}>
+      <SpotLightViewContainer 
+        tabType = { tabType } 
+        activeRouteIndex = { activeRouteIndex } 
+        darkBuldgeColor = { backgroundColor } 
+        tabBarHeight = { tabBarHeight }
+      />
 
       {routes.map((route, routeIndex) => {
         const isRouteActive = routeIndex === activeRouteIndex;
-        const color = isRouteActive ? activeTintColor : inactiveTintColor;
+        const tintColor = isRouteActive ? activeTintColor : inactiveTintColor;
         const darkTabStyling = (isRouteActive && tabType === 'dark' && {bottom: 8}) || ''
         const lightTabStyling = (isRouteActive && tabType === 'light' && {bottom: 22}) || ''
-        const tintColor = {
-          color: color
-        }
+
         return (
           <TouchableOpacity
             key={routeIndex}
@@ -57,7 +63,7 @@ const LightDarkTab = props => {
                 {renderIcon({ route, focused: isRouteActive, tintColor })}
               </View>
               <View>
-                {tabType === 'light' && !tintColor.isRouteActive && <Text style = {{ color: color }}>{route.routeName}</Text>}
+                {tabType === 'light' && !isRouteActive && <Text style = {{ color: tintColor }}>{route.routeName}</Text>}
               </View>
             </Scaler>
           </TouchableOpacity>

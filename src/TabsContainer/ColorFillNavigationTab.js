@@ -5,19 +5,17 @@ import { tabWidth, Scaler } from '../utils'
 import styles from '../styling'
 
 const ColorFillNavigationTab = props => {
-  const { navigation, renderIcon, onTabPress, onTabLongPress, style, activeTintColor, inactiveTintColor, tabType } = props
+  const { navigation, renderIcon, onTabPress, onTabLongPress, style, activeTintColor, inactiveTintColor, tabType, tabBarHeight } = props
   const { backgroundColor } = style
   const [containerColor, setContainerColor] = useState(backgroundColor.home)
 
   const { routes, index: activeRouteIndex } = navigation.state
 
 	return (
-    <View style = {[styles.container, { backgroundColor: containerColor }]}>
+    <View style = {[styles.container, { backgroundColor: containerColor, height: tabBarHeight || 70 }]}>
       { routes.map((route, routeIndex) => {
         const isRouteActive = routeIndex === activeRouteIndex;
-        const tintColor = {
-          color: isRouteActive ? activeTintColor : inactiveTintColor,
-        }
+        const tintColor = isRouteActive ? activeTintColor : inactiveTintColor
 
         return (
           <TouchableOpacity 

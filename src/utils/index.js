@@ -3,11 +3,16 @@ import posed from "react-native-pose";
 
 const windowWidth = Dimensions.get("window").width;
 const tabWidth = windowWidth / 4;
-let navigationRoutes = {};
+let navigationRoutes = {
+	route0: { x: 0},
+  route1: { x: tabWidth * 1 },
+  route2: { x: tabWidth * 2 },
+  route3: { x: tabWidth * 3 }
+};
 
-Object.keys(iconMap).map((item, index) => {
-  navigationRoutes[`route${index}`] = { x: tabWidth * index }
-})
+// Object.keys(iconMap).map((item, index) => {
+//   navigationRoutes[`route${index}`] = { x: tabWidth * index }
+// })
 
 const SpotLight = posed.View(navigationRoutes);
 
