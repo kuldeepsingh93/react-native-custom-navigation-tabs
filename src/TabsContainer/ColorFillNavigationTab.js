@@ -24,11 +24,14 @@ const ColorFillNavigationTab = props => {
   let numOfTabs = routes.length;
   let tabWidth = windowWidth / numOfTabs
 
+  const activeColor = activeTintColor || 'black'
+  const inactiveColor = inactiveTintColor || 'white'
+
 	return (
     <View style = {[styles.container, { backgroundColor: containerColor, height: tabBarHeight || 70 }]}>
       { routes.map((route, routeIndex) => {
         const isRouteActive = routeIndex === activeRouteIndex;
-        const tintColor = isRouteActive ? activeTintColor : inactiveTintColor
+        const tintColor = isRouteActive ? activeColor : inactiveColor
 
         return (
           <TouchableOpacity 

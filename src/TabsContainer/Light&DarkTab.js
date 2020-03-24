@@ -27,6 +27,8 @@ const LightDarkTab = props => {
   const { routes, index: activeRouteIndex } = navigation.state;
 
   const backgroundColor = tabBarBackgroundColor || ((tabType === 'dark') && 'black') || 'white'
+  const activeColor = activeTintColor || 'black'
+  const inactiveColor = inactiveTintColor || ((tabType === 'light' && 'grey') || 'white')
 
   return (
     <View style={[styles.container, { backgroundColor: backgroundColor, height: tabBarHeight || 70 }]}>
@@ -40,7 +42,7 @@ const LightDarkTab = props => {
 
       {routes.map((route, routeIndex) => {
         const isRouteActive = routeIndex === activeRouteIndex;
-        const tintColor = isRouteActive ? activeTintColor : inactiveTintColor;
+        const tintColor = isRouteActive ? activeColor : inactiveColor;
         const darkTabStyling = (isRouteActive && tabType === 'dark' && {bottom: 8}) || ''
         const lightTabStyling = (isRouteActive && tabType === 'light' && {bottom: 22}) || ''
 
