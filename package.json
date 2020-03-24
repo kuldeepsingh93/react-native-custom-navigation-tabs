@@ -1,6 +1,6 @@
 {
   "name": "react-native-custom-navigation-tabs",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "Custom bottom navigation tabs for react native",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,10 @@
     "react",
     "native",
     "navigation",
-    "animated"
+    "animated",
+    "navigator",
+    "tabs",
+    "custom"
   ],
   "author": "Kuldeep Singh",
   "license": "ISC",

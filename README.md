@@ -50,25 +50,25 @@ const TabNavigator = createBottomTabNavigator(
     Home: {
     	screen: HomeScreen,
     	navigationOptions: {
-    	  tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} name = 'H' />
+    	  tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} displayIcon = 'H' />
     	}
     },
     Search: {
       screen: SearchScreen,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} name = 'S' />
+        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} displayIcon = 'S' />
       }
     },
     Favorites: {
       screen: FavoritesScreen,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} name = 'F' />
+        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} displayIcon = 'F' />
       }
     },
     Profile: {
       screen: ProfileScreen,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} name = 'P' />
+        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} displayIcon = 'P' />
       }
     },
   },
@@ -108,10 +108,10 @@ export default TabNavigation;
 import React from "react"
 import { View, Text } from "react-native"
 
-const Icon = ({ name, tintColor }) => {
+const Icon = ({ displayIcon, tintColor }) => {
   return (
     <View>
-      <Text style={{ fontSize: 26, color: tintColor }}>{ name }</Text>
+      <Text style={{ fontSize: 26, color: tintColor }}>{ displayIcon }</Text>
     </View>
   )
 };
