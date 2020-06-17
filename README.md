@@ -1,6 +1,6 @@
 <h1>react-native-custom-navigation-tabs</h1>
 
-A custom bottomTabNavigator which supports 5 different types of tabBar styling and animations
+A custom bottomTabNavigator which supports 5 different types of tabBar styling and animations.
 
 
 <h1>Getting Started</h1>
@@ -18,109 +18,156 @@ Import the **TabBar** component from **react-native-custom-navigation-tabs**:
 ```shell
 import TabBar from 'react-native-custom-navigation-tabs'
 ```
-You need the pass this component to ```tabBarComponent``` property while defining ```createBottomTabNavigator```.
-The following properties need to be passed to ```tabBarOptions``` defined besides ```tabBarComponent``` in the form of an object. You can also refer to usage example explained below.
-
-<h1>tabBarOptions Properties</h1>
-
-1. **tabBarType**: This prop defines the type of tab bar styling that the user wants to use. There are 5 different types available - 
-    * 'light'
-    * 'dark'
-    * 'colorFillTab'
-    * 'bubbleTab'
-    * 'zoomInOut'
-    
-    ```You need to provide this property otherwise an error will occur.```
-2. **activeTintColor**: It accepts a color in the form of string. It is applied on the icon/label of the active tab. If not provided, it will default to ```black```.
-3. **inactiveTintColor**: It also accepts a string value for color. It is applied to the icon/label of the inactive tabs. If not provided, it will default to ```white``` for both ```dark and colorFillTab``` tab type or to ```grey``` for ```light``` tab type. 
-4. **tabBarBackgroundColor**: It is the background color of the whole tab bar. If not provided, it will default to ```white``` if the ```tabType``` selected is ```light``` or to ```black``` if the ```tabType``` selected is ```dark```. 
-5. **tabBarHeight**: It accepts a number. It is the height of the whole tab bar that the user wants to keep. If not provided, it will default to ```70```. The recommended values are ```60, 65, 70```.
-6. **style**: This property is specifically for ```colorFillTab```. It defines the specific colors that the tab bar will take corresponding to each tab. It is an object with in turn accepts a single object ```backgroundColor```. Here, user pass the color for each tab as seen in usage example.
-
-**NOTE**: Please provide ```style``` property in case you are using ```colorFillTab``` tab otherwise an error will occur.
-
-<h1>Usage Example:</h1>
-
-<h3>Create Navigator</h3>
+<h1>Usage Example</h1>
 
 ```shell
+import React from 'react';
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import Icon from 'react-native-vector-icons/FontAwesome'
+
 import TabBar from 'react-native-custom-navigation-tabs'
-import { createAppContainer } from 'react-navigation'
-import { createBottomTabNavigator } from 'react-navigation-tabs'
+
+import { HomeScreen, SearchScreen, FavoritesScreen, ProfileScreen, LikeScreen } from './Screens'
 
 const TabNavigator = createBottomTabNavigator(
   {
     Home: {
-    	screen: HomeScreen,
-    	navigationOptions: {
-    	  tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} displayIcon = 'H' />
-    	}
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => <Icon size={25} name="home" style={{ color: tintColor }} />
+      }
     },
     Search: {
       screen: SearchScreen,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} displayIcon = 'S' />
+        tabBarIcon: ({ tintColor }) => <Icon size={25} name="search" style={{ color: tintColor }} />
       }
     },
     Favorites: {
       screen: FavoritesScreen,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} displayIcon = 'F' />
+        tabBarIcon: ({ tintColor }) => <Icon size={25} name="heart" style={{ color: tintColor }} />
       }
     },
     Profile: {
       screen: ProfileScreen,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Icon tintColor = {tintColor} displayIcon = 'P' />
+        tabBarIcon: ({ tintColor }) => <Icon size={25} name="user-circle" style={{ color: tintColor }} />
       }
     },
+    Likes: {
+      screen: LikeScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => <Icon size={25} name="thumbs-up" style={{ color: tintColor }} />
+      }
+    }
+
   },
   {
-    tabBarComponent: TabBar,
-    tabBarOptions: {
-      activeTintColor: '#000000',
-      inactiveTintColor: '#ffffff',
-      tabBarBackgroundColor: '#000000',
-      tabBarHeight: 70,
-      tabType: 'dark',
-      style: { 
-        backgroundColor: {
-          home: 'grey',
-          search: 'darkgreen',
-          favorites: 'purple',
-          profile: 'blue'
-      }}
-    }
+    tabBarComponent: TabBar,    // pass TabBar here.
+    tabBarOptions: {}        // discussed below.
   }
 );
-
 
 const TabNavigation = createAppContainer(TabNavigator)
 
 export default TabNavigation;
 ```
-**NOTE**: 
-* ```HomeScreen, SearchScreen, FavoritesScreen, ProfileScreen``` and ```Icon``` components are defined by user and are imported here.
-* ```activeTintColor, inactiveTintColor, tabBarBackgroundColor, tabBarHeight``` properties are optional to provide as they will take up their default values if not provided by user.
-* ```tabType, style(while using colorFillTab)``` properties are required otherwise the user will get an error.
-* Make sure that the keys of ```backgroundColor``` under ```tabBarOptions -> style -> backgroundColor``` are same as your tab name and all in small caps as shown in usage example.
+As shown in above example, you need to add your ```icon``` in ```navigationOptions{}``` beside your screen and do remember to provide the ```style={{ color: tintColor }}``` to it as shown.
 
-<h3>Icon Component</h3>
+<h1>tabBarOptions</h1>
 
-```shell
-import React from "react"
-import { View, Text } from "react-native"
+This is the place where we provide the type and custom styling to our tab navigator. Below are the tabBar options respective to each ```tabBarType```.
 
-const Icon = ({ displayIcon, tintColor }) => {
-  return (
-    <View>
-      <Text style={{ fontSize: 26, color: tintColor }}>{ displayIcon }</Text>
-    </View>
-  )
-};
-export default Icon;
-```
+1. <h3>light</h3>
+   
+   ![](src/gifs/lightTab.gif)
+   
+   ```tabBarOptions{}``` for this type will be - 
+   ```shell
+   tabBarOptions: {
+      activeTintColor:   // **(optional)**, defaults to '#000000' if not provided. This is the color of the active icon.
+      inactiveTintColor: // **(optional)**, defaults to 'grey' if not provided. This is the color of the inactive icon.
+      tabBarBackgroundColor: // **(optional)**, defaults to '#ffffff' if not provided. This is the backgroundColor of the whole tab bar.
+      tabBarHeight: // **(optional)**, defaults to 70 if not provided. This is the height of the tab bar.
+      tabBarType: 'light', // **(important)**, and should be provided.
+      numOfTabs: 5, // **(important)** and should be provided. It is the number of screens that are defined in navigator like in the above example it is 5.
+   }
+   ```
+2. <h3>dark</h3>
 
+   ![](src/gifs/darkTab.gif)
+   
+   ```tabBarOptions{}``` for this type will be -  
+   ```shell
+   tabBarOptions: {
+      activeTintColor:   // **(optional)**, defaults to '#ffffff' if not provided. This is the color of the active icon.
+      inactiveTintColor: // **(optional)**, defaults to 'grey' if not provided. This is the color of the inactive icon.
+      tabBarBackgroundColor: // **(optional)**, defaults to '#000000' if not provided. This is the backgroundColor of the whole tab bar.
+      tabBarHeight: // **(optional)**, defaults to 70 if not provided. This is the height of the tab bar.
+      tabBarType: 'dark', // **(important)**, and should be provided.
+      numOfTabs: 5, // **(important)** and should be provided. It is the number of screens that are defined in navigator like in the above example it is 5.
+   }
+   ```
+   
+3. <h3>colorFillTab</h3>
+
+   ![](src/gifs/colorFill.gif)
+   
+   ```tabBarOptions{}``` for this type will be - 
+   ```shell
+   tabBarOptions: {
+      activeTintColor: // **(optional)**, defaults to '#000000' if not provided. This is the color of the active icon.
+      inactiveTineColor: // **(optional)**, defaults to 'grey' if not provided. This is the color of the active icon.
+      tabBarHeight: // **(optional)**, defaults to 70 if not provided. This is the height of the tab bar.
+      tabBarType: 'colorFillTab', // **(important)**, and should be provided.
+      numOfTabs: 5, // **(important)** and should be provided. It is the number of screens that are defined in navigator like in the above example it is 5.
+      activeBackgroundColor: {                // **(important)** and should be provided.
+         Home: 'brown',
+         Search: 'yellow',
+         Favorites: 'purple',
+         Profile: 'blue',
+         Likes: 'pink'
+      }
+   }
+   ```
+**NOTE :** Here, ```activeBackgroundColor``` are the colors that the tabBar background takes corresponding to each tab. The key of each value should be exactly the same as the label of your tab.
+
+4. <h3>bubbleTab</h3>
+
+   ![](src/gifs/bubbleTab.gif)
+   
+   ```tabBarOptions{}``` for this type will be - 
+   ```shell
+   tabBarOptions: {
+      activeTintColor:   // **(optional)**, defaults to '#000000' if not provided. This is the color of the active icon.
+      inactiveTintColor: // **(optional)**, defaults to 'grey' if not provided. This is the color of the inactive icon.
+      tabBarBackgroundColor: // **(optional)**, defaults to '#ffffff' if not provided. This is the backgroundColor of the whole tab bar.
+      tabBarHeight: // **(optional)**, defaults to 70 if not provided. This is the height of the tab bar.
+      tabBarType: 'bubbleTab', // **(important)**, and should be provided.
+      numOfTabs: 5, // **(important)** and should be provided. It is the number of screens that are defined in navigator like in the above example it is 5.
+      activeBackgroundColor: // **(optional)**, defaults to '#DCDCDC' if not provided. This is the color that the active tab background takes.  
+   }
+   ```
+5. <h3>zoomInOut</h3>
+
+   ![](src/gifs/zoomTab.gif)
+   
+   ```tabBarOptions{}``` for this type will be - 
+   ```shell
+   tabBarOptions: {
+      activeTintColor:   // **(optional)**, defaults to '#000000' if not provided. This is the color of the active icon.
+      inactiveTintColor: // **(optional)**, defaults to 'grey' if not provided. This is the color of the inactive icon.
+      tabBarBackgroundColor: // **(optional)**, defaults to '#ffffff' if not provided. This is the backgroundColor of the whole tab bar.
+      tabBarHeight: // **(optional)**, defaults to 70 if not provided. This is the height of the tab bar.
+      tabBarType: 'zoomInOut', // **(important)**, and should be provided.
+      numOfTabs: 5, // **(important)** and should be provided. It is the number of screens that are defined in navigator like in the above example it is 5.
+      activeBackgroundColor: // **(optional)**, defaults to '#1178A9' if not provided. This is the color that the active tab background takes.  
+   }
+   ```
+This is all that needs to be done. Have a great time using this module. I hope it serves your purpose!
+   
 <h1>Build with: </h1>
 
 * React
@@ -129,5 +176,3 @@ export default Icon;
 * react-navigation-tabs
 * react-native-pose
 * Animated
-
-
