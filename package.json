@@ -1,6 +1,6 @@
 {
   "name": "react-native-custom-navigation-tabs",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Custom bottom navigation tabs for react native",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,5 @@
   "devDependencies": {
     "metro-react-native-babel-preset": "^0.58.0"
   },
-  "dependencies": {
-    "react-native-pose": "^0.9.1"
-  }
+  "dependencies": {}
 }

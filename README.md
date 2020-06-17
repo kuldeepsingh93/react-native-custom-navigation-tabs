@@ -1,6 +1,7 @@
 <h1>react-native-custom-navigation-tabs</h1>
 
-A react native package that provides 3 types of tab bar styling that one can use in his/her bottomTabNavigator on the go.
+A custom bottomTabNavigator which supports 5 different types of tabBar styling and animations
+
 
 <h1>Getting Started</h1>
 
@@ -22,10 +23,12 @@ The following properties need to be passed to ```tabBarOptions``` defined beside
 
 <h1>tabBarOptions Properties</h1>
 
-1. **tabType**: This prop defines the type of tab bar styling that the user wants to use. There can be 3 **string** values for it i.e
+1. **tabBarType**: This prop defines the type of tab bar styling that the user wants to use. There are 5 different types available - 
     * 'light'
     * 'dark'
     * 'colorFillTab'
+    * 'bubbleTab'
+    * 'zoomInOut'
     
     ```You need to provide this property otherwise an error will occur.```
 2. **activeTintColor**: It accepts a color in the form of string. It is applied on the icon/label of the active tab. If not provided, it will default to ```black```.

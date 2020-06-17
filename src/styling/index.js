@@ -1,40 +1,44 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-	container: {
+  container: {
     flexDirection: "row",
     elevation: 2,
     alignItems: "center",
   },
-  tabButton: { flex: 1 },
-  spotLight: {
-    height: "100%",
-    justifyContent: "center",
+  bubbleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: "space-around",
     alignItems: "center"
   },
-  spotLightInner: {
-    backgroundColor: "#ffffff",
-    borderRadius: 50
-  },
-  lightModeSpotLightInner: {
-    backgroundColor: "#ffffff",
-    borderRadius: 50
-  },
-  dark_bulge_container: { 
-    backgroundColor: '#000000',
-    position: 'absolute',
-    bottom: 10,
+  scaler: { flex: 1, justifyContent: "center", alignItems: "center" },
+  semiCircle: {
+    height: 25,
+    width: 40,
     borderTopRightRadius: 50,
-    borderTopLeftRadius: 50
+    borderTopLeftRadius: 50,
+    position: "absolute",
+    zIndex: -1
   },
-  light_bulge_container: {
-    backgroundColor: '#bbbbbb',
-    position: 'absolute',
-    top: 0,
-    borderBottomRightRadius: 50,
-    borderBottomLeftRadius: 50
+  single_tab: {
+    height: 40,
+    width: 117,
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    flexDirection: 'row',
+    borderRadius: 20
   },
-  scaler: { flex: 1, alignItems: "center", justifyContent: "center" }
+  tab_name: {
+    fontSize: 13,
+    lineHeight: 15
+  },
+  animatedView: {
+    height: 60,
+    width: 60,
+    position: "absolute",
+    borderRadius: 50,
+  }
 })
 
 export default styles
