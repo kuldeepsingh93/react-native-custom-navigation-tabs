@@ -82,7 +82,7 @@ This is the place where we provide the type and custom styling to our tab naviga
 
 1. <h3>light</h3>
    
-   ![](src/gifs/lightTab.gif)
+   [Click here to view this type.](https://drive.google.com/file/d/1-K-55507iIq0xJy-zmC1-TNMTpPfyID_/view?usp=sharing)
    
    ```tabBarOptions{}``` for this type will be - 
    ```shell
@@ -97,7 +97,7 @@ This is the place where we provide the type and custom styling to our tab naviga
    ```
 2. <h3>dark</h3>
 
-   ![](src/gifs/darkTab.gif)
+   [Click here to view this type.](https://drive.google.com/file/d/1J4zeplpgZBdo3E12HvSa4aAf69QsM4Pd/view?usp=sharing)
    
    ```tabBarOptions{}``` for this type will be -  
    ```shell
@@ -113,7 +113,7 @@ This is the place where we provide the type and custom styling to our tab naviga
    
 3. <h3>colorFillTab</h3>
 
-   ![](src/gifs/colorFill.gif)
+   [Click here to view this type.](https://drive.google.com/file/d/1PaICS-KVrthw9UTJ8BgIOOUyzSjXXjcp/view?usp=sharing)
    
    ```tabBarOptions{}``` for this type will be - 
    ```shell
@@ -136,7 +136,7 @@ This is the place where we provide the type and custom styling to our tab naviga
 
 4. <h3>bubbleTab</h3>
 
-   ![](src/gifs/bubbleTab.gif)
+   [Click here to view this type.](https://drive.google.com/file/d/1iMvRQ5InHqanConJNTpPbUpfo68FcTj5/view?usp=sharing)
    
    ```tabBarOptions{}``` for this type will be - 
    ```shell
@@ -152,7 +152,7 @@ This is the place where we provide the type and custom styling to our tab naviga
    ```
 5. <h3>zoomInOut</h3>
 
-   ![](src/gifs/zoomTab.gif)
+   [Click here to view this type.](https://drive.google.com/file/d/1SdKjVrOrKXvA-WpBvQqgNfi12jDiNAiC/view?usp=sharing)
    
    ```tabBarOptions{}``` for this type will be - 
    ```shell
